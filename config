@@ -2,7 +2,7 @@ exec --no-startup-id dunst -config ~/.dunstrc
 
 exec --no-startup-id xsetroot -cursor_name Paper
 
-exec --no-startup-id polybar example
+exec --no-startup-id polybar dexger --config=$HOME/.config/polybar/dexger
 
 exec --no-startup-id nm-applet
 
