@@ -48,13 +48,13 @@ font-2 = FontAwesome:pixelsize=11;2.5
 
 modules-left = i3
 modules-center =
-modules-right = cpu volume filesystem battery date
+modules-right = volume filesystem battery date
 
 tray-position = right
-tray-padding = 2
+tray-padding = 4
 ;tray-transparent = true
 ;tray-background = #cc000000
-tray-offset-x = -368
+tray-offset-x = -308
 tray-detached = true
 
 ;wm-restack = bspwm
