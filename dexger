@@ -24,8 +24,7 @@ width = 100%
 height = 23
 ;offset-x = 1%
 ;offset-y = 1%
-;tray-offset-x = 630
-radius = 0.0
+radius = 5.0
 fixed-center = false
 
 background = ${colors.background}
@@ -45,7 +44,7 @@ module-margin-right = 2
 
 font-0 = "Roboto:pixelsize=10;3"
 font-1 = "Roboto:size=10:weight=bold;"
-font-2 = FontAwesome:pixelsize=11;2
+font-2 = FontAwesome:pixelsize=11;2.5
 
 modules-left = i3
 modules-center =
@@ -55,6 +54,8 @@ tray-position = right
 tray-padding = 2
 ;tray-transparent = true
 ;tray-background = #cc000000
+tray-offset-x = -368
+tray-detached = true
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -248,10 +249,8 @@ type = internal/date
 interval = 1
 
 date = "%d/%m/%y"
-date-alt = "%d/%m/%y"
 
 time = "%H:%M"
-time-alt =  "%H:%M:%S"
 ;format-prefix =  
 format-prefix-foreground = ${colors.foreground-alt}
 ;format-underline = #0a6cf5

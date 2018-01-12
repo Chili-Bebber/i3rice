@@ -12,7 +12,7 @@ echo "preparing to install /u/Dexger's i3 config, make sure you run this with ro
 #install preliminary dependencies + dunst dependencies
 echo "installing various dependencies"
 sudo apt-get install git libinput p7zip-full unrar wget curl 
-libdbus-1-dev libx11-dev libxinerama-dev libxrandr-dev libxss-dev libglib2.0-dev libpango1.0-dev libgtk2.0-dev libxdg-basedir-dev compton libinput i3lock feh lxappearance scrot rofi
+libdbus-1-dev libx11-dev libxinerama-dev libxrandr-dev libxss-dev libglib2.0-dev libpango1.0-dev libgtk2.0-dev libxdg-basedir-dev compton libinput i3lock feh lxappearance scrot rofi amixer alsamixer alsa lolcat nm-applet
 
 #install polybar dependencies
 sudo apt install cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libxcb-cursor-dev
@@ -25,6 +25,9 @@ sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util
 
 #install icon font for polybar (fontawesome)
 sudo apt-get install fonts-font-awesome
+
+#resolve any unmet dependencies
+sudo apt-get install -f
 
 #compile & install i3-gaps window manager
 echo "compiling and installing i3-gaps window manager"
@@ -49,6 +52,10 @@ cd
 #compile & install polybar
 echo "compiling and installing polybar"
 git clone --branch 3.1.0 --recursive https://github.com/jaagr/polybar
+echo "POLYBAR BUILD CONFIG - SELECT MODULES YOU WOULD LIKE ENABLED. ALSA IS REQUIRED FOR THIS CONFIG TO WORK" | lolcat && sleep 2
+cd polybar
+./build.sh
+cd
 mkdir polybar/build
 cd polybar/build
 cmake ..
