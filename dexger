@@ -266,11 +266,11 @@ label-volume-foreground = ${root.foreground}
 
 ; format-muted-prefix =
 format-muted-foreground = ${colors.foreground-alt}
-label-muted = VOL  
+label-muted = "VOL   "
 
-ramp-volume-0 = VOL  
-ramp-volume-1 = VOL  
-ramp-volume-2 = VOL 
+ramp-volume-0 = "VOL   " 
+ramp-volume-1 = "VOL  " 
+ramp-volume-2 = "VOL "
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
