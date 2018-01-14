@@ -7,7 +7,7 @@
 #################################################################################
 
 #startup message
-echo "preparing to install /u/Dexger's i3 config, make sure you run this with root privileges (sudo). You are running this in a terminal!" && notify-send "preparing to install /u/Dexger's i3 config, make sure you run this with root privileges (sudo). Please run this script from the terminal" && sleep 1
+echo "preparing to install /u/Dexger's i3 config. You are running this in a terminal!" && notify-send "preparing to install /u/Dexger's i3 config Please run this script from the terminal" && sleep 1
 
 #install preliminary dependencies + dunst dependencies
 echo "installing various dependencies"
@@ -21,7 +21,7 @@ sudo apt install cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libx
 sudo apt-get install tilix
 
 #install i3-gaps dependencies
-sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake
+sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake dunst
 
 #install icon font for polybar (fontawesome)
 sudo apt-get install fonts-font-awesome
