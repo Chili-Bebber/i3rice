@@ -54,7 +54,7 @@ tray-position = right
 tray-padding = 5
 ;tray-transparent = true
 ;tray-background = #cc000000
-tray-offset-x = -315
+tray-offset-x = -306
 tray-detached = true
 
 ;wm-restack = bspwm
