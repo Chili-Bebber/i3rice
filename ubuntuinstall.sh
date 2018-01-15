@@ -11,8 +11,7 @@ echo "preparing to install /u/Dexger's i3 config. You are running this in a term
 
 #install preliminary dependencies + dunst dependencies
 echo "installing various dependencies"
-sudo apt-get install git libinput p7zip-full unrar wget curl 
-libdbus-1-dev libx11-dev libxinerama-dev libxrandr-dev libxss-dev libglib2.0-dev libpango1.0-dev libgtk2.0-dev libxdg-basedir-dev compton libinput i3lock feh lxappearance scrot rofi amixer alsamixer alsa lolcat nm-applet
+sudo apt-get install git libinput p7zip-full unrar wget curl compton rofi scrot feh libdbus-1-dev libx11-dev libxinerama-dev libxrandr-dev libxss-dev libglib2.0-dev libpango1.0-dev libxdg-basedir-dev i3lock lxappearance scrot rofi amixer alsa lolcat
 
 #install polybar dependencies
 sudo apt install cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libxcb-cursor-dev
