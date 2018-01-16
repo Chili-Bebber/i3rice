@@ -46,14 +46,14 @@ font-0 = "Roboto:pixelsize=10;3"
 font-1 = "Roboto:size=10:weight=bold;"
 font-2 = FontAwesome:pixelsize=11;2.5
 
-modules-left = i3
+modules-left = i3 rhythmbox
 modules-center =
 modules-right = volume filesystem battery date
 
 tray-position = right
 tray-padding = 5
 ;tray-transparent = true
-;tray-background = #cc000000
+tray-background = #cc000000
 tray-offset-x = -315
 tray-detached = true
 
@@ -74,6 +74,20 @@ cursor-scroll = ns-resize
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
+
+[module/spacer]
+type = custom/script
+exec = echo "hello"
+format-prefix = "%{F#000000}spac"
+
+[module/rhythmbox]
+type = custom/script
+exec = rhythmbox-client --print-playing-format="%tt - %te/%td"
+exec-if = pgrep -x rhythmbox
+interval = 2
+format-underline = #000000
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground}
 
 [module/xkeyboard]
 type = internal/xkeyboard
