@@ -53,8 +53,8 @@ modules-right = volume filesystem battery date
 tray-position = right
 tray-padding = 5
 ;tray-transparent = true
-tray-background = #cc000000
-tray-offset-x = -315
+;tray-background = #cc000000
+tray-offset-x = -318
 tray-detached = true
 
 ;wm-restack = bspwm
