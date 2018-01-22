@@ -4,6 +4,20 @@ exec --no-startup-id polybar dexger --config=$HOME/.config/polybar/dexger
 
 exec --no-startup-id nm-applet
 
+exec --no-startup-id xset s off
+
+bindsym $mod+l exec --no-startup-id notify-send "going to sleep..." && sleep 1 && xset dpms force suspend -led
+
+bindsym Shift+2 exec --no-startup-id notify-send "Rolling a D20..." && sleep 1 && shuf -i 1-20 -n 1 | xargs -0 notify-send "You rolled:"
+
+bindsym Shift+6 exec --no-startup-id notify-send "Rolling a D6..." && sleep 1 && shuf -i 1-6 -n 1 | xargs -0 notify-send "You rolled:"
+
+bindsym Shift+8 exec --no-startup-id notify-send "Rolling a D8..." && sleep 1 && shuf -i 1-8 -n 1 | xargs -0 notify-send "You rolled:"
+
+bindsym Shift+4 exec --no-startup-id notify-send "Rolling a D4..." && sleep 1 && shuf -i 1-4 -n 1 | xargs -0 notify-send "You rolled:"
+
+bindsym Shift+0 exec --no-startup-id notify-send "Rolling a D10..." && sleep 1 && shuf -i 1-10 -n 1 | xargs -0 notify-send "You rolled:"
+
 #colors
 # class                 border  bground text    indicator child_border
 client.focused          #2688DE #11B3FF #000000 #2E9EF4   #285577
@@ -98,9 +112,9 @@ floating_modifier $mod
 bindsym $mod+Return exec --no-startup-id tilix
 
 # take a screenshot
-bindsym --release Print exec --no-startup-id scrot
+bindsym --release Print exec --no-startup-id scrot && notify-send "screenshot taken"
 
-bindsym --release Shift+Print exec --no-startup-id scrot -s
+bindsym --release Shift+Print exec --no-startup-id scrot -s && notify-send "screenshot taken"
 
 # gaps
 # smart_gaps off
@@ -125,10 +139,10 @@ bindsym $mod+a exec --no-startup-id rofi -show window
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left

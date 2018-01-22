@@ -52,9 +52,9 @@ modules-right = volume filesystem battery date
 
 tray-position = right
 tray-padding = 5
-;tray-transparent = true
-;tray-background = #cc000000
-tray-offset-x = -318
+tray-transparent = false
+;tray-background = #000000
+tray-offset-x = -320
 tray-detached = true
 
 ;wm-restack = bspwm
@@ -82,12 +82,10 @@ format-prefix = "%{F#000000}spac"
 
 [module/rhythmbox]
 type = custom/script
-exec = rhythmbox-client --print-playing-format="%tt - %te/%td"
+exec = ~/.config/polybar/song.sh
 exec-if = pgrep -x rhythmbox
-interval = 2
-format-underline = #000000
-format-prefix = "  "
-format-prefix-foreground = ${colors.foreground}
+interval = 1
+format = %{A1:rhythmbox-client --no-start:}%{A}   %{A1:rhythmbox-client --previous:}%{A} %{A1:rhythmbox-client --quit:}%{A} %{A1:rhythmbox-client --next:}%{A}  %{A1:rhythmbox-client --play-pause:}<label>%{A}
 
 [module/xkeyboard]
 type = internal/xkeyboard
