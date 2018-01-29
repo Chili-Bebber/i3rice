@@ -25,7 +25,7 @@ height = 23
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 5.0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -42,19 +42,19 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = "Roboto:pixelsize=10;3"
-font-1 = "Roboto:size=10:weight=bold;"
-font-2 = FontAwesome:pixelsize=11;2.5
+font-0 = Roboto:pixelsize=11;3
+font-1 = Roboto:size=11:weight=bold;
+font-2 = FontAwesome:pixelsize=11;2.6
 
-modules-left = i3 rhythmbox
+modules-left = bspwm i3 rhythmbox
 modules-center =
 modules-right = volume filesystem battery date
 
 tray-position = right
 tray-padding = 5
-tray-transparent = false
+;tray-transparent = false
 ;tray-background = #000000
-tray-offset-x = -320
+tray-offset-x = -303
 tray-detached = true
 
 ;wm-restack = bspwm
@@ -85,7 +85,7 @@ type = custom/script
 exec = ~/.config/polybar/song.sh
 exec-if = pgrep -x rhythmbox
 interval = 1
-format = %{A1:rhythmbox-client --no-start:}%{A}   %{A1:rhythmbox-client --previous:}%{A} %{A1:rhythmbox-client --quit:}%{A} %{A1:rhythmbox-client --next:}%{A}  %{A1:rhythmbox-client --play-pause:}<label>%{A}
+format = %{A1:rhythmbox-client --no-start:}%{A}   %{A1:rhythmbox-client --previous:}%{A} %{A1:killall rhythmbox:}%{A} %{A1:rhythmbox-client --next:}%{A}  %{A1:rhythmbox-client --play-pause:}<label>%{A}
 
 [module/xkeyboard]
 type = internal/xkeyboard
