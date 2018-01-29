@@ -11,7 +11,7 @@ echo "preparing to install /u/Dexger's i3 config. You are running this in a term
 
 #install preliminary dependencies + dunst dependencies
 echo "installing various dependencies"
-sudo apt-get install git libinput p7zip-full unrar wget curl compton rofi scrot feh libdbus-1-dev libx11-dev libxinerama-dev libxrandr-dev libxss-dev libglib2.0-dev libpango1.0-dev libxdg-basedir-dev i3lock lxappearance scrot rofi amixer alsa lolcat
+sudo apt-get install git p7zip-full unrar wget curl compton rofi scrot feh libdbus-1-dev libx11-dev libxinerama-dev libxrandr-dev libxss-dev libglib2.0-dev libpango1.0-dev libxdg-basedir-dev i3lock lxappearance scrot rofi amixer alsa lolcat xserver-xorg-inut-synaptics
 
 #install polybar dependencies
 sudo apt install cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libxcb-cursor-dev
@@ -22,11 +22,15 @@ sudo apt-get install tilix
 #install i3-gaps dependencies
 sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake dunst
 
-#install icon font for polybar (fontawesome)
-sudo apt-get install fonts-font-awesome
+#install font and icon font for polybar (fontawesome)
+sudo apt-get install fonts-font-awesome fonts-roboto
 
 #resolve any unmet dependencies
 sudo apt-get install -f
+
+#hibernation script
+git clone https://github.com/acrisci/i3ipc-python.git
+cp ~/i3pc-python/examples/disable-standby-fs.py ~/disable-standby-fs.py
 
 #compile & install i3-gaps window manager
 echo "compiling and installing i3-gaps window manager"
@@ -70,7 +74,7 @@ echo "would you like to add tap to click support for touchpads? (this modifies x
 read -r -p "Are you sure? [y/N] " response
 case "$response" in
     [yY][eE][sS]|[yY]) 
-        sudo touch /etc/X11/xorg.conf && sudo echo 'Section "InputClass"
+        sudo mkdir /etc/X11/xorg.conf.d && sudo touch /etc/X11/xorg.conf.d/20-synaptics.conf && sudo echo 'Section "InputClass"
         Identifier "10"
         MatchIsTouchpad "on"
         Driver "libinput"
@@ -81,7 +85,7 @@ Option "HorizHysteresis" "20"
     Option "FingerLow" "10"
     Option "FingerHigh" "20"
     
-EndSection' >> /etc/X11/xorg.conf
+EndSection' >> /etc/X11/xorg.conf.d/20-synaptics.conf
         ;;
     *)
         echo "xorg.conf was not changed" && sleep 1
@@ -114,6 +118,8 @@ case "$response" in
         echo "gtk-3.0 config was unchanged" && sleep 1
         ;;
 esac
+
+sudo apt-get install feh rofi scrot compton
 
 echo "install complete, selecting i3 from your display manager will now use new configs." && echo "exiting..." && sleep 1 && exit
 
