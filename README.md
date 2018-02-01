@@ -3,7 +3,7 @@ This is a repository for my dotfiles. To use the included install script (for Ub
 ![alt text](https://i.imgur.com/kDnTx9W.jpg)
 
 # install
-This setup depends on the following dependencies: dunst, polybar, compton, i3-gaps, rofi, fontawesome (icon font), feh, tilix, and scrot.
+This setup requires the following dependencies: dunst, light, polybar, compton, i3-gaps, rofi, fontawesome (icon font), feh, tilix, and scrot.
 
 dexger is to be placed in ~/.config/polybar/
 
