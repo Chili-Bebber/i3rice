@@ -22,7 +22,7 @@ alert = #f9be0c
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 23
-;offset-x = 1%
+;offset-x = 80%
 ;offset-y = 1%
 radius = 5.0
 fixed-center = true
@@ -47,14 +47,14 @@ font-1 = Roboto:size=11:weight=bold;
 font-2 = FontAwesome:pixelsize=11;2.6
 
 modules-left = bspwm i3 rhythmbox
-modules-center =
+modules-center = xwindow
 modules-right = volume filesystem battery date
 
 tray-position = right
 tray-padding = 5
 ;tray-transparent = false
 ;tray-background = #000000
-tray-offset-x = -303
+tray-offset-x = -236
 tray-detached = true
 
 ;wm-restack = bspwm
@@ -73,7 +73,7 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title:0:100:...%
 
 [module/spacer]
 type = custom/script
