@@ -1,9 +1,9 @@
 #!/bin/bash
 
 #################################################################################
-#										#
-#	i3 config install script - intended for use on Ubuntu and derivatives	#
-#										#
+#										                                        #
+#	i3 config install script - intended for use on Ubuntu and derivatives	    #
+#										                                        #
 #################################################################################
 
 #startup message
