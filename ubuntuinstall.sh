@@ -119,6 +119,7 @@ case "$response" in
         ;;
 esac
 
+
 sudo apt-get install feh rofi scrot compton
 
 echo "install complete, selecting i3 from your display manager will now use new configs." && echo "exiting..." && sleep 1 && exit
