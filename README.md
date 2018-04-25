@@ -1,6 +1,7 @@
 # i3rice
-This is a repository for my dotfiles. To use the included install script (for Ubuntu and derivatives), save it to your home folder and run it from the terminal. This script makes changes to ~/.config/gtk-3.0/settings.ini, so you may need to re-apply your gtk+ theme.
-![alt text](https://i.imgur.com/kDnTx9W.jpg)
+This is a repository for my dotfiles. It integrates nicely with rhythmbox for audio playing, so if you already use that, have fun.
+
+![alt text](https://i.imgur.com/DWXWK3q.png)
 
 # install
 This setup requires the following dependencies: dunst, light, polybar, compton, i3-gaps, rofi, fontawesome (icon font), feh, tilix, and scrot.
