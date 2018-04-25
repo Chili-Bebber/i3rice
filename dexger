@@ -9,7 +9,7 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #000000
+background = #cc000000
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
@@ -33,7 +33,10 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 4
+border-left = 4
+border-right = 4
+border-top = 4
+border-bottom = 0
 border-color = #00000000
 
 padding-left = 0
@@ -45,6 +48,7 @@ module-margin-right = 2
 font-0 = Roboto:pixelsize=11;3
 font-1 = Roboto:size=11:weight=bold;
 font-2 = FontAwesome:pixelsize=11;2.6
+font-3 = FontAwesome:pixelsize=11;0
 
 modules-left = bspwm i3 rhythmbox
 modules-center = xwindow
@@ -52,8 +56,8 @@ modules-right = volume filesystem battery date
 
 tray-position = right
 tray-padding = 5
-;tray-transparent = false
-;tray-background = #000000
+tray-transparent = false
+tray-background = #BB222222
 tray-offset-x = -236
 tray-detached = true
 
@@ -85,7 +89,7 @@ type = custom/script
 exec = ~/.config/polybar/song.sh
 exec-if = pgrep -x rhythmbox
 interval = 1
-format = %{A1:rhythmbox-client --no-start:}%{A}   %{A1:rhythmbox-client --previous:}%{A} %{A1:killall rhythmbox:}%{A} %{A1:rhythmbox-client --next:}%{A}  %{A1:rhythmbox-client --play-pause:}<label>%{A}
+format = %{A1:i3-msg 'workspace 9; exec --no-startup-id rhythmbox-client --no-start':} Rhythmbox%{A}   %{A1:rhythmbox-client --previous:}%{A} %{A1:killall rhythmbox:}%{A} %{A1:rhythmbox-client --next:}%{A}  %{A1:rhythmbox-client --play-pause:}<label>%{A}
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -136,35 +140,51 @@ label-empty-padding = 2
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
-wrapping-scroll = false
+wrapping-scroll = true
 
 ; Only show workspaces on the same output as the bar
-;pin-workspaces = true
+pin-workspaces = true
 
 label-mode-padding = 2
 label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+label-mode-background = #efc81e
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
-label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-underline = ${module/bspwm.label-focused-underline}
+label-focused = %icon%
+label-focused-foreground = #1fbbef
+label-focused-background = #666666
+label-focused-underline = #1fbbef
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+;label-unfocused = 
+label-unfocused = %icon%
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = %name%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%
-label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent = %icon%
+label-urgent-foreground = #efc81e
+label-urgent-background = #4f4f4f
+;#efc81e
+;#4f4f4f
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+ws-icon-7 = 8;8
+ws-icon-8 = 9;
+ws-icon-9 = 10;
 
 [module/mpd]
 type = internal/mpd

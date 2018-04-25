@@ -36,23 +36,25 @@ exec --no-startup-id cd ~/.conky/ && conky -c conkyrc
 exec --no-startup-id dunst -config ~/.dunstrc &
 exec --no-startup-id sleep 1 && polybar dexger --config=$HOME/.config/polybar/dexger -r &
 exec --no-startup-id cd ~/.config && conky -c conkyrc &
-exec --no-startup-id nm-applet &
+exec --no-startup-id nm-applet 
 exec_always --no-startup-id python3 disable-standby-fs.py &
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-exec --no-startup-id compton -b &
-exec --no-startup-id feh --bg-fill --random ~/Pictures/ivy.jpg # set path to your desired wallpaper image
+exec --no-startup-id compton
+exec --no-startup-id start-pulseaudio-x11
+exec --no-startup-id feh --bg-fill --random ~/Pictures/raphael-rychetsky-213744-unsplash.jpg
 
 #
-# this forces gpu into performance mode. I like this. you may not.
+# this forces an NVIDIA gpu into performance mode. I like this. you may not.
 # comment out or delete depending on what you prefer
 #
 exec --no-startup-id nvidia-settings -a '[gpu:0]/GPUPowerMizerMode=1'
 
 # misc. settings
 #exec --no-startup-id sh -c '/usr/bin/nvidia-settings --load-config-only'
-#exec --no-startup-id sleep 4 && pavucontrol & killall pavucontrol &
+#exec --no-startup-id sleep 4 && pavucontrol & killall pavucontrol
 #exec --no-startup-id sh -c '/usr/bin/nvidia-settings --load-config-only' &
 #exec_always --no-startup-id python3 wkspc.py &
+#exec --no-startup-id sleep 10 && ckb-next & killall ckb-next
 
 # KEYBINDINGS
 # BASIC SUMMARY:
@@ -227,6 +229,7 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="Xfce4-panel" instance="xfce4-panel"] floating enable
+for_window [class="Tilix"] floating_maximum_size 640 x 640
 
 # Cheers!
 # -Dexter

@@ -24,6 +24,6 @@ start_angle = 40,
 end_angle = 345, 
 background_color = 0x000000, 
 background_alpha = 0.5, 
-background_thickness = 2, 
+background_thickness = 1, 
 },
 }
