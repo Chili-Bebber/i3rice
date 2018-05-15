@@ -34,25 +34,29 @@ font pango:monospace 0
 # startup programs/commands
 exec --no-startup-id cd ~/.conky/ && conky -c conkyrc
 exec --no-startup-id dunst -config ~/.dunstrc &
-exec --no-startup-id sleep 1 && polybar dexger --config=$HOME/.config/polybar/dexger -r &
-exec --no-startup-id cd ~/.config && conky -c conkyrc &
-exec --no-startup-id nm-applet 
+exec --no-startup-id sleep 5 && polybar dexger --config=$HOME/.config/polybar/dexger -r
+exec --no-startup-id sleep 1 && nm-applet 
 exec_always --no-startup-id python3 disable-standby-fs.py &
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+#exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id compton
 exec --no-startup-id start-pulseaudio-x11
-exec --no-startup-id feh --bg-fill --random ~/Pictures/raphael-rychetsky-213744-unsplash.jpg
+exec --no-startup-id feh --bg-fill --random ~/Pictures/wp.jpg
+exec --no-startup-id sudo uinput_workaround
 
 #
-# this forces an NVIDIA gpu into performance mode. I like this. you may not.
-# comment out or delete depending on what you prefer
-#
-exec --no-startup-id nvidia-settings -a '[gpu:0]/GPUPowerMizerMode=1'
+# this forces an NVIDIA gpu into performance mode.
+# sometimes I like to have this on, so I keep it in my config. Uncomment to use.
+
+# exec --no-startup-id nvidia-settings -a '[gpu:0]/GPUPowerMizerMode=1'
+
+# force cpu into performance mode
+exec --no-startup-id sudo cpupower frequency-set -g performance
+
 
 # misc. settings
-#exec --no-startup-id sh -c '/usr/bin/nvidia-settings --load-config-only'
+exec --no-startup-id sh -c '/usr/bin/nvidia-settings --load-config-only'
 #exec --no-startup-id sleep 4 && pavucontrol & killall pavucontrol
-#exec --no-startup-id sh -c '/usr/bin/nvidia-settings --load-config-only' &
 #exec_always --no-startup-id python3 wkspc.py &
 #exec --no-startup-id sleep 10 && ckb-next & killall ckb-next
 
@@ -69,10 +73,10 @@ exec --no-startup-id nvidia-settings -a '[gpu:0]/GPUPowerMizerMode=1'
 bindsym $mod+l exec --no-startup-id notify-send "going to sleep..." && sleep 1 && xset dpms force suspend -led
 bindsym Ctrl+Shift+w exec --no-startup-id python3 ~/weather.py | xargs -0 notify-send
 bindsym $mod+Control+l exec --no-startup-id i3lock -i ~/Pictures/bsod.png -u # i3lock command. Set picture to whatever you want
-bindsym $mod+Return exec --no-startup-id tilix
+bindsym $mod+Return exec --no-startup-id tilix -e zsh
 # Audio controls 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 2dB+ unmute
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 2dB- unmute
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 # increase screen brightness
@@ -140,8 +144,8 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 
 #mode switching
-bindsym $mod+m mode ""
-bindsym $mod+r mode ""
+bindsym $mod+m mode ""
+bindsym $mod+r mode ""
 bindsym $mod+p mode ""
 
 ############
@@ -149,7 +153,7 @@ bindsym $mod+p mode ""
 ############
 
 # move floating windows with keys
-mode "" {
+mode "" {
     bindsym $mod+Tab focus right
 
     bindsym Left  move left
@@ -163,7 +167,7 @@ mode "" {
     bindsym Escape mode "default"
 }
 # resize window (you can also use the mouse for that)
-mode "" {
+mode "" {
         # These bindings trigger as soon as you enter the resize mode
 
         # Pressing left will shrink the window’s width.
@@ -233,3 +237,4 @@ for_window [class="Tilix"] floating_maximum_size 640 x 640
 
 # Cheers!
 # -Dexter
+
