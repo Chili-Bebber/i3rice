@@ -1,14 +1,17 @@
 /*******************************************************************************
  * ROFI Color theme
- * User: deadguy
+ * User: chilibebber
  * Copyright: deadguy
+   ?
 *******************************************************************************/
+
+/* based off of sidetab by deadguy */
 
 * {
     background-color:            rgba(20, 20, 20, 0.6);
     text-color:                  #d3d7cf;
     selbg:                       #1fbbef;
-    actbg:                       rgba(26, 26, 26, 0.5);
+    actbg:                       rgba(86, 101, 127, 0.2);
     urgbg:                       #e53935;
     winbg:                       #1fbbef;
 
