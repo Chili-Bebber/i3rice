@@ -41,8 +41,9 @@ exec_always --no-startup-id python3 disable-standby-fs.py &
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id compton
 exec --no-startup-id start-pulseaudio-x11
-exec --no-startup-id feh --bg-fill --random ~/Pictures/wp.jpg
+exec --no-startup-id feh --bg-fill --random ~/Pictures/wall.jpg
 exec --no-startup-id sudo uinput_workaround
+exec --no-startup-id sleep 1 && pavucontrol
 
 #
 # this forces an NVIDIA gpu into performance mode.
@@ -234,6 +235,12 @@ for_window [class="feh"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="Xfce4-panel" instance="xfce4-panel"] floating enable
 for_window [class="Tilix"] floating_maximum_size 640 x 640
+for_window [class="discord" title="Discord Updater"] floating enable
+for_window [class="Mumble"] floating enable
+
+# this makes sure Pulseaudio Volume Control is run in the scratchpad so it can be called up easily.
+# I have it set here because it solves some audio issues.
+for_window [class="Pavucontrol"] move scratchpad - minimize
 
 # Cheers!
 # -Dexter
