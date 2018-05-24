@@ -1,7 +1,7 @@
 [global]
-    font = "Liberation Sans Narrow 8"
+    font = "Roboto 8"
     allow_markup = yes
-    format = "<b>%s</b>\n%b"
+    format = "<b>%a</>\n%b\n%p"
     sort = yes
     indicate_hidden = yes
     alignment = center
@@ -26,8 +26,8 @@
     #icon_folders = /usr/share/icons/elementary/actions/16/
 
 [frame]
-    width = 1
-    color = "#ffffff"
+    width = 0
+    color = "#00000000"
 
 [shortcuts]
     close = ctrl+space
@@ -49,3 +49,4 @@
     background = "#ffffff"
     foreground = "#e83f29"
     timeout = 10
+
