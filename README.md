@@ -15,7 +15,7 @@
 
 * compton.conf is to be placed in ~/.config/
 
-* dunstrc is to be placed in ~/
+* .dunstrc is to be placed in ~/
 
 * song.sh is to be placed in ~/.config/polybar/
 
