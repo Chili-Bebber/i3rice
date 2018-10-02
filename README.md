@@ -1,5 +1,5 @@
 # i3rice
-This is a repository for my dotfiles. It integrates nicely with rhythmbox for audio playing, so if you already use that, have fun.
+This is a repository for my dotfiles. My bar uses Fontawesome 5 and Roboto as fonts by default, but you can change that!
 
 ![alt text](https://i.imgur.com/SnLCFG4.png)
 
@@ -8,7 +8,7 @@ If you would like to use my whole setup, it uses the **Roboto** font by default 
 
 * polybar is to be placed in ~/.config/polybar/
 
-* config is to be placed in ~/.i3/
+* config is to be placed in ~/.config/i3/
 
 * compton.conf is to be placed in ~/.config/
 
@@ -16,4 +16,4 @@ If you would like to use my whole setup, it uses the **Roboto** font by default 
 
 * song.sh is to be placed in ~/.config/polybar/
 
-
+* conkyrc, conky_draw_config.lua and conky_draw.lua are all to be placed in ~/.conky
