@@ -5,7 +5,7 @@
 # notes
 * This is a repository for my dotfiles. My bar uses Fontawesome 5 and Roboto fonts by default, but you can change that!
 * My conky requires [conky draw](https://github.com/fisadev/conky-draw). Go grab that if you want it.
-* My compton config is made to work nicely with my Nvidia GPU on the proprietary drivers. My config may not be the best for your hardware
+* My compton config is made to work nicely with my Nvidia GPU on the proprietary drivers. It may not be the best for your hardware
 
 # setup
 
