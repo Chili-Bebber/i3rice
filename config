@@ -11,48 +11,69 @@
 #                                 #
 ###################################
 
-#for_window [class="^.*"] border pixel none
+for_window [class="^.*"] border pixel 0
 # set mod key to alt
 set $mod Mod1
 
+#monitor config
+workspace 1 output $monitor1
+workspace 2 output $monitor1
+workspace 3 output $monitor1
+workspace 4 output $monitor1
+workspace 5 output $monitor1
+workspace 6 output $monitor1
+workspace 7 output $monitor1
+workspace 8 output $monitor1
+workspace 9 output $monitor1
+workspace 10 output $monitor1
+workspace b output $monitor2
+
 # gaps settings
-gaps inner 13
+gaps inner 10
 gaps outer 0
 
 
 #colors & fonts
 # CLASS                 BORDER  BG      TEXT    INDICATOR CHILD_BORDER
-client.focused          #2688DE #11B3FF #000000 #2E9EF4   #285577
-client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
-client.unfocused        #333333 #222222 #888888 #292D2E   #222222
-client.urgent           #FFA136 #F9BE0C #000000 #900000   #900000
-client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+client.focused          #70beff #70beff #00000000 #70beff   #70beff
+client.focused_inactive #b2bac1 #b2bac1 #FFFFFF66 #b2bac1   #b2bac1
+client.unfocused        #595959 #595959 #888888 #292D2E   #222222
+client.urgent           #F9BE0C #F9BE0C #000000 #F9BE0C  #F9BE0C
+client.placeholder      #00000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 client.background       #FFFFFF
 font pango:monospace 0
 
 
 # startup programs/commands
 exec --no-startup-id cd ~/.conky/ && conky -c conkyrc
-exec --no-startup-id dunst -config ~/.dunstrc &
+# exec --no-startup-id nohup neofetch
+exec --no-startup-id dunst -config ~/.dunstrc
 exec --no-startup-id sleep 5 && polybar dexger --config=$HOME/.config/polybar/dexger -r
-exec --no-startup-id sleep 1 && nm-applet 
-exec_always --no-startup-id python3 disable-standby-fs.py &
-#exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1 &
+exec --no-startup-id python3 disable-standby-fs.py
+#exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 exec --no-startup-id compton
 exec --no-startup-id start-pulseaudio-x11
-exec --no-startup-id feh --bg-fill --random ~/Pictures/wall.jpg
+exec --no-startup-id feh --bg-fill ~/Downloads/walls/alex-holyoake-439787-unsplash.jpg
 exec --no-startup-id sudo uinput_workaround
 exec --no-startup-id sleep 1 && pavucontrol
+#exec --no-startup-id sleep 1 && pavucontrol-qt
+#exec --no-startup-id xrandr --output DP-4 --primary --output DVI-D-0 --auto --right-of DP-4 && feh --bg-fill --random ~/Downloads/walls/jason-leem-143987-unsplash.jpg
+exec --no-startup-id sleep 8 && redshift-gtk -l 40:-80
 
 #
 # this forces an NVIDIA gpu into performance mode.
 # sometimes I like to have this on, so I keep it in my config. Uncomment to use.
 
-# exec --no-startup-id nvidia-settings -a '[gpu:0]/GPUPowerMizerMode=1'
+exec --no-startup-id nvidia-settings -a '[gpu:0]/GPUPowerMizerMode=1'
+
+# NVIDIA overclock
+
+exec --no-startup-id nvidia-settings -a '[gpu:0]/GPUMemoryTransferRateOffset[3]=1000' -a '[gpu:0]/GPUGraphicsClockOffset[3]=120'
+
 
 # force cpu into performance mode
-exec --no-startup-id sudo cpupower frequency-set -g performance
+exec --no-startup-id sudo  cpupower frequen-set -g performance
 
 
 # misc. settings
@@ -71,10 +92,11 @@ exec --no-startup-id sh -c '/usr/bin/nvidia-settings --load-config-only'
 # alt+r = resize mode
 # alt+shift+q = kill active window
 
+bindsym $mod+Shift+s sticky toggle
 bindsym $mod+l exec --no-startup-id notify-send "going to sleep..." && sleep 1 && xset dpms force suspend -led
 bindsym Ctrl+Shift+w exec --no-startup-id python3 ~/weather.py | xargs -0 notify-send
 bindsym $mod+Control+l exec --no-startup-id i3lock -i ~/Pictures/bsod.png -u # i3lock command. Set picture to whatever you want
-bindsym $mod+Return exec --no-startup-id tilix -e zsh
+bindsym $mod+Return exec --no-startup-id tilix
 # Audio controls 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-
@@ -83,14 +105,17 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 1 # decrease screen brightness
 #screenshot
-bindsym --release Print exec --no-startup-id scrot -e 'mv $f ~/Pictures/Screenshots'  && notify-send "screenshot taken"
-bindsym --release Shift+Print exec --no-startup-id scrot -s -e 'mv $f ~/Pictures/Screenshots' && notify-send "screenshot taken"
+bindsym --release Print exec --no-startup-id gnome-screenshot -e 'mv $f ~/Pictures/Screenshots'  && notify-send "screenshot taken"
+bindsym --release Shift+Print exec --no-startup-id gnome-screenshot -a -e 'mv $f ~/Pictures/Screenshots' && notify-send "screenshot taken"
 # launch ROFI in various modes
-bindsym $mod+d exec --no-startup-id rofi -show run
-bindsym $mod+s exec --no-startup-id rofi -show drun
-bindsym $mod+a exec --no-startup-id rofi -show window
+bindsym $mod+s exec --no-startup-id rofi -show run
+bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+a exec --no-startup-id rofi -show window 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+q exec --no-startup-id wmctrl -c :ACTIVE:
+# without wmctrl
+# bindsym $mod+Shift+q kill
+
 # change focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -110,10 +135,11 @@ bindsym $mod+f fullscreen toggle
 bindsym Mod4+p fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 # bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
+bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 # alt tab
 bindsym $mod+Tab workspace next
+bindsym $mod+Escape workspace prev
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 bindsym Mod4+Tab floating toggle; exec --no-startup-id i3-msg move position center
@@ -148,6 +174,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+m mode ""
 bindsym $mod+r mode ""
 bindsym $mod+p mode ""
+bindsym $mod+Shift+g exec --no-startup-id i3-msg mode "game" && notify-send "Game mode on" &
 
 ############
 # i3 MODES #
@@ -214,12 +241,15 @@ mode "" {
         bindsym Escape mode "default"
 }
 
+mode "game" {
+	bindsym $mod+Shift+g exec --no-startup-id i3-msg mode "default" && notify-send "Game mode off" &
+}
 
 
 
 # OTHER
 floating_modifier $mod
-focus_follows_mouse true
+focus_follows_mouse false
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -227,20 +257,27 @@ bindsym $mod+Shift+r restart
 
 new_float none
 new_window none
+#for_window [class="^Steam$" title="[^Steam]*"] floating enable
 for_window [class="^Steam$" title=".* - Chat"] floating enable
 for_window [class="^Steam$" title=".* CD key"] floating enable
 for_window [class="^Steam$" title="Steam - News"] floating enable
+for_window [title="Minecraft Launcher"] floating enable
+for_window [class="^Steam$" title="Add a Game"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="mpv"] floating enable
-for_window [class="Xfce4-panel" instance="xfce4-panel"] floating enable
-for_window [class="Tilix"] floating_maximum_size 640 x 640
 for_window [class="discord" title="Discord Updater"] floating enable
 for_window [class="Mumble"] floating enable
+for_window [class="File-roller"] floating enable
+for_window [class="steam" title="Steam Keyboard"] floating enable
+for_window [class="steam" title="Steam Keyboard"] floating enable no_focus enable
+for_window [class="Nm-connection-editor"] flaoting enable
+
 
 # this makes sure Pulseaudio Volume Control is run in the scratchpad so it can be called up easily.
 # I have it set here because it solves some audio issues.
 for_window [class="Pavucontrol"] move scratchpad - minimize
+for_window [class="pavucontrol-qt"] move scratchpad - minimize
 
 # Cheers!
 # -Dexter
