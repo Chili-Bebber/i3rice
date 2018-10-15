@@ -48,7 +48,7 @@ font pango:monospace 0
 exec --no-startup-id cd ~/.conky/ && conky -c conkyrc
 # exec --no-startup-id nohup neofetch
 exec --no-startup-id dunst -config ~/.dunstrc
-exec --no-startup-id sleep 5 && polybar dexger --config=$HOME/.config/polybar/dexger -r
+exec --no-startup-id sleep 5 && polybar dexger --config=$HOME/.config/polybar/polybar -r
 exec --no-startup-id python3 disable-standby-fs.py
 #exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
