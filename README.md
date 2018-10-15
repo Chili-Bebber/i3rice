@@ -21,4 +21,4 @@
 
 * conkyrc, conky_draw_config.lua and conky_draw.lua are all to be placed in ~/.conky
 
-* sidepane.rasi is to be placed in ~/.config/rofi/
+* sidepane.rasi is to be placed in /usr/share/rofi/themes
