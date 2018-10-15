@@ -19,7 +19,6 @@ secondary = #e60053
 alert = #f9be0c
 
 [bar/dexger]
-monitor = DP-4
 width = 100%
 height = 23
 ;offset-x = 80%
